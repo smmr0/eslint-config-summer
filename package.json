@@ -1,0 +1,17 @@
+{
+	"name": "eslint-config-summer",
+	"version": "1.0.0",
+	"private": true,
+	"type": "module",
+	"packageManager": "yarn@4.0.0-rc.50",
+	"main": "index.js",
+	"dependencies": {
+		"@eslint/js": "^8.48.0"
+	},
+	"devDependencies": {
+		"eslint": "^8.48.0"
+	},
+	"scripts": {
+		"lint": "eslint ."
+	}
+}

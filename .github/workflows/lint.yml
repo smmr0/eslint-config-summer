@@ -1,0 +1,16 @@
+on:
+  push:
+  pull_request:
+  workflow_call:
+jobs:
+  lint:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v3
+      - uses: actions/setup-node@v3
+        with:
+          node-version-file: '.node-version'
+          cache: yarn
+      - run: corepack enable
+      - run: yarn install --immutable
+      - run: yarn run lint
