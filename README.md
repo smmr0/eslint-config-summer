@@ -1,3 +1,4 @@
 # `eslint-config-summer`
 
-Summer ☀️'s [ESLint](https://eslint.org/) config
+Summer ☀️'s
+[ESLint config](https://eslint.org/docs/latest/extend/shareable-configs)
