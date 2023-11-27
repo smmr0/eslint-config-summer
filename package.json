@@ -6,7 +6,9 @@
 	"packageManager": "yarn@4.0.2",
 	"main": "index.js",
 	"dependencies": {
-		"@eslint/js": "^8.54.0"
+		"@eslint/js": "^8.54.0",
+		"@stylistic/eslint-plugin-js": "^1.4.1",
+		"@stylistic/eslint-plugin-migrate": "^1.4.1"
 	},
 	"devDependencies": {
 		"eslint": "^8.54.0"

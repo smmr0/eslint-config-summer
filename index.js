@@ -1,7 +1,9 @@
-/* eslint quote-props: ['error', 'consistent-as-needed'] */
+/* eslint @stylistic/js/quote-props: ['error', 'consistent-as-needed'] */
 /* eslint-disable max-lines */
 
-import js from '@eslint/js'
+import eslintJs from '@eslint/js'
+import stylisticJs from '@stylistic/eslint-plugin-js'
+import stylisticMigrate from '@stylistic/eslint-plugin-migrate'
 
 export default {
 	languageOptions: {
@@ -14,8 +16,12 @@ export default {
 		'.pnp.*',
 		'.yarn/**',
 	],
+	plugins: {
+		'@stylistic/js': stylisticJs,
+		'@stylistic/migrate': stylisticMigrate,
+	},
 	rules: {
-		...js.configs.all.rules,
+		...eslintJs.configs.all.rules,
 
 		// Possible problems
 		'array-callback-return': [
@@ -140,12 +146,6 @@ export default {
 			'error',
 			'separate-lines',
 		],
-		'no-confusing-arrow': [
-			'error',
-			{
-				onlyOneSimpleParam: true,
-			},
-		],
 		'no-continue': 'off',
 		'no-eq-null': 'off',
 		'no-extra-boolean-cast': [
@@ -199,7 +199,6 @@ export default {
 			'error',
 			'never',
 		],
-		'one-var-declaration-per-line': 'off',
 		'prefer-const': [
 			'error',
 			{
@@ -214,10 +213,6 @@ export default {
 				disallowRedundantWrapping: true,
 			},
 		],
-		'quote-props': [
-			'error',
-			'as-needed',
-		],
 		'radix': [
 			'error',
 			'as-needed',
@@ -231,49 +226,41 @@ export default {
 		],
 		'sort-keys': 'off',
 		'sort-vars': 'off',
-		'spaced-comment': [
-			'error',
-			'always',
-			{
-				block: {
-					balanced: true,
-				},
-			},
-		],
 
-		// Layout & Formatting
-		'array-bracket-newline': [
+		// @stylistic/js
+		...stylisticJs.configs['all-flat'].rules,
+		'@stylistic/js/array-bracket-newline': [
 			'error',
 			'consistent',
 		],
-		'array-element-newline': [
+		'@stylistic/js/array-element-newline': [
 			'error',
 			'consistent',
 		],
-		'arrow-parens': [
+		'@stylistic/js/arrow-parens': [
 			'error',
 			'as-needed',
 			{
 				requireForBlockBody: true,
 			},
 		],
-		'comma-dangle': [
+		'@stylistic/js/comma-dangle': [
 			'error',
 			'always-multiline',
 		],
-		'dot-location': [
+		'@stylistic/js/dot-location': [
 			'error',
 			'property',
 		],
-		'function-call-argument-newline': [
+		'@stylistic/js/function-call-argument-newline': [
 			'error',
 			'consistent',
 		],
-		'function-paren-newline': [
+		'@stylistic/js/function-paren-newline': [
 			'error',
 			'multiline-arguments',
 		],
-		'generator-star-spacing': [
+		'@stylistic/js/generator-star-spacing': [
 			'error',
 			{
 				before: false,
@@ -282,7 +269,7 @@ export default {
 				method: 'both',
 			},
 		],
-		'indent': [
+		'@stylistic/js/indent': [
 			'error',
 			'tab',
 			{
@@ -290,34 +277,40 @@ export default {
 			},
 		],
 		'line-comment-position': 'off',
-		'linebreak-style': [
+		'@stylistic/js/linebreak-style': [
 			'error',
 			'unix',
 		],
-		'lines-around-comment': [
+		'@stylistic/js/lines-around-comment': [
 			'error',
 			{
 				afterHashbangComment: true,
 			},
 		],
-		'lines-between-class-members': [
+		'@stylistic/js/lines-between-class-members': [
 			'error',
 			'always',
 			{
 				exceptAfterSingleLine: true,
 			},
 		],
-		'max-len': 'off',
-		'multiline-ternary': [
+		'@stylistic/js/max-len': 'off',
+		'@stylistic/js/multiline-ternary': [
 			'error',
 			'never',
 		],
-		'new-parens': [
+		'@stylistic/js/new-parens': [
 			'error',
 			'never',
 		],
-		'newline-per-chained-call': 'off',
-		'no-extra-parens': [
+		'@stylistic/js/newline-per-chained-call': 'off',
+		'@stylistic/js/no-confusing-arrow': [
+			'error',
+			{
+				onlyOneSimpleParam: true,
+			},
+		],
+		'@stylistic/js/no-extra-parens': [
 			'error',
 			'all',
 			{
@@ -328,29 +321,30 @@ export default {
 				enforceForFunctionPrototypeMethods: false,
 			},
 		],
-		'no-multiple-empty-lines': [
+		'@stylistic/js/no-multiple-empty-lines': [
 			'error',
 			{
 				max: 1,
 			},
 		],
-		'no-tabs': [
+		'@stylistic/js/no-tabs': [
 			'error',
 			{
 				allowIndentationTabs: true,
 			},
 		],
-		'object-curly-spacing': [
+		'@stylistic/js/object-curly-spacing': [
 			'error',
 			'always',
 		],
-		'object-property-newline': [
+		'@stylistic/js/object-property-newline': [
 			'error',
 			{
 				allowAllPropertiesOnSameLine: true,
 			},
 		],
-		'operator-linebreak': [
+		'@stylistic/js/one-var-declaration-per-line': 'off',
+		'@stylistic/js/operator-linebreak': [
 			'error',
 			'before',
 			{
@@ -359,41 +353,56 @@ export default {
 				},
 			},
 		],
-		'padded-blocks': [
+		'@stylistic/js/padded-blocks': [
 			'error',
 			'never',
 		],
-		'padding-line-between-statements': [
+		'@stylistic/js/padding-line-between-statements': [
 			'error',
-
 			{ blankLine: 'always', prev: 'directive', next: '*' },
 			{ blankLine: 'any', prev: 'directive', next: 'directive' },
 		],
-		'quotes': [
+		'@stylistic/js/quote-props': [
+			'error',
+			'as-needed',
+		],
+		'@stylistic/js/quotes': [
 			'error',
 			'single',
 			{
 				avoidEscape: true,
 			},
 		],
-		'semi': [
+		'@stylistic/js/semi': [
 			'error',
 			'never',
 		],
-		'space-before-function-paren': [
+		'@stylistic/js/space-before-function-paren': [
 			'error',
 			{
 				anonymous: 'never',
 				named: 'never',
 			},
 		],
-		'wrap-iife': [
+		'@stylistic/js/spaced-comment': [
+			'error',
+			'always',
+			{
+				block: {
+					balanced: true,
+				},
+			},
+		],
+		'@stylistic/js/wrap-iife': [
 			'error',
 			'inside',
 			{
 				functionPrototypeMethods: true,
 			},
 		],
-		'wrap-regex': 'off',
+		'@stylistic/js/wrap-regex': 'off',
+
+		// @stylistic/migrate
+		'@stylistic/migrate/migrate': 'error',
 	},
 }
