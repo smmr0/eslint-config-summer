@@ -4,13 +4,11 @@
 import eslintJs from '@eslint/js'
 import stylisticJs from '@stylistic/eslint-plugin-js'
 import stylisticMigrate from '@stylistic/eslint-plugin-migrate'
+import stylisticPlus from '@stylistic/eslint-plugin-plus'
 
 export default {
 	languageOptions: {
 		ecmaVersion: 'latest',
-	},
-	linterOptions: {
-		reportUnusedDisableDirectives: true,
 	},
 	ignores: [
 		'.pnp.*',
@@ -19,6 +17,7 @@ export default {
 	plugins: {
 		'@stylistic/js': stylisticJs,
 		'@stylistic/migrate': stylisticMigrate,
+		'@stylistic/plus': stylisticPlus,
 	},
 	rules: {
 		...eslintJs.configs.all.rules,
@@ -33,10 +32,6 @@ export default {
 		'no-cond-assign': [
 			'error',
 			'always',
-		],
-		'no-inner-declarations': [
-			'error',
-			'both',
 		],
 		'no-irregular-whitespace': [
 			'error',
@@ -66,11 +61,11 @@ export default {
 			'error',
 			{
 				args: 'all',
-				caughtErrors: 'all',
 				varsIgnorePattern: '^_',
 				argsIgnorePattern: '^_',
 				caughtErrorsIgnorePattern: '^_',
 				destructuredArrayIgnorePattern: '^_',
+				reportUsedIgnorePattern: true,
 			},
 		],
 		'use-isnan': [
@@ -404,5 +399,11 @@ export default {
 
 		// @stylistic/migrate
 		'@stylistic/migrate/migrate': 'error',
+
+		// @stylistic/plus
+		'@stylistic/plus/indent-binary-ops': [
+			'error',
+			'tab',
+		],
 	},
 }

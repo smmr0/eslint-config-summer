@@ -3,15 +3,16 @@
 	"version": "1.1.0",
 	"private": true,
 	"type": "module",
-	"packageManager": "yarn@4.0.2",
+	"packageManager": "yarn@4.1.1",
 	"main": "index.js",
 	"dependencies": {
-		"@eslint/js": "^8.54.0",
-		"@stylistic/eslint-plugin-js": "^1.4.1",
-		"@stylistic/eslint-plugin-migrate": "^1.4.1"
+		"@eslint/js": "^9.0.0",
+		"@stylistic/eslint-plugin-js": "^1.7.0",
+		"@stylistic/eslint-plugin-migrate": "^1.7.0",
+		"@stylistic/eslint-plugin-plus": "^1.7.0"
 	},
 	"devDependencies": {
-		"eslint": "^8.54.0"
+		"eslint": "^9.0.0"
 	},
 	"scripts": {
 		"lint": "eslint ."

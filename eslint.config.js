@@ -1,3 +1,8 @@
 import eslintConfigSummer from '.'
 
-export default eslintConfigSummer
+export default [
+	{
+		ignores: eslintConfigSummer.ignores,
+	},
+	eslintConfigSummer,
+]
