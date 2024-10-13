@@ -137,16 +137,12 @@ export default {
 				ignoreExpressions: true,
 			},
 		],
-		'multiline-comment-style': [
-			'error',
-			'separate-lines',
-		],
 		'no-continue': 'off',
 		'no-eq-null': 'off',
 		'no-extra-boolean-cast': [
 			'error',
 			{
-				enforceForLogicalOperands: true,
+				enforceForInnerExpressions: true,
 			},
 		],
 		'no-implicit-coercion': [
@@ -230,7 +226,10 @@ export default {
 		],
 		'@stylistic/js/array-element-newline': [
 			'error',
-			'consistent',
+			{
+				consistent: true,
+				multiline: true,
+			},
 		],
 		'@stylistic/js/arrow-parens': [
 			'error',
@@ -271,7 +270,7 @@ export default {
 				SwitchCase: 1,
 			},
 		],
-		'line-comment-position': 'off',
+		'@stylistic/js/line-comment-position': 'off',
 		'@stylistic/js/linebreak-style': [
 			'error',
 			'unix',
@@ -290,6 +289,10 @@ export default {
 			},
 		],
 		'@stylistic/js/max-len': 'off',
+		'@stylistic/js/multiline-comment-style': [
+			'error',
+			'separate-lines',
+		],
 		'@stylistic/js/multiline-ternary': [
 			'error',
 			'never',
@@ -401,6 +404,13 @@ export default {
 		'@stylistic/migrate/migrate': 'error',
 
 		// @stylistic/plus
+		'@stylistic/plus/curly-newline': [
+			'error',
+			{
+				multiline: true,
+				consistent: true,
+			},
+		],
 		'@stylistic/plus/indent-binary-ops': [
 			'error',
 			'tab',
